@@ -32,3 +32,20 @@ const checkWin = () => {
         }
     })
 }
+
+// Game Logic
+let boxes = document.getElementsByClassName('box');
+Array.from(boxes).forEach(element => {
+    let boxText = element.querySelector('.boxText');
+    element.addEventListener('click', () => {
+        if (boxText.innerText === '') {
+            boxText.innerText = turn;
+            turn = changeTurn();
+            audioTurn.play();
+            checkWin();
+            if (!isGameOver) {
+                document.getElementsByClassName('info')[0].innerText = "Turn for " + turn;
+            }
+        }
+    })
+})
