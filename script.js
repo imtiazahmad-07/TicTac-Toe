@@ -49,3 +49,17 @@ Array.from(boxes).forEach(element => {
         }
     })
 })
+
+// Add onclick listener on reset button
+let reset = document.querySelector('.reset');
+reset.addEventListener('click', () => {
+    let boxText = document.getElementsByClassName('boxText');
+    Array.from(boxText).forEach(element => {
+        element.innerText = "";
+    });
+    turn = "X";
+    isGameOver = false;
+    document.querySelector('.imgBox').getElementsByTagName('img')[0].style.width = "0px";
+    document.getElementsByClassName('info')[0].innerText = "Turn for " + turn;
+    music.play();
+})
